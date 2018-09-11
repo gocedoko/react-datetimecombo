@@ -20,31 +20,41 @@ import DateTimeCombo from 'react-datetimecombo';
 render: function() {
     return <DateTimeCombo 
         
-                                                    // Important: Set either value or defaultValue!
+        // Important: Set either value or defaultValue!
+        
+        //connect state value to use datetimecombo picker as a controlled component
+        value={this.state.value}
+        
+        //or: use default value to use datetimecombo picker as an uncontrolled component
+        defaultValue={moment()}                     
 
-        value={state.value}                         //connect app state value to use datetimecombo picker as a controlled component
-        defaultValue={moment()}                     //or: use default value to use datetimecombo picker as an uncontrolled component
+        // any format supported by moment.js (for example: "hh:mm a" for a 12 hour clock)
+        dateTimeFormat="DD.MM.YYYY HH:mm"
 
-
-        dateTimeFormat="DD.MM.YYYY HH:mm"           // any format supported by moment.js (for example: "hh:mm a" for a 12 hour clock)
-
-        closeOnSelect={true}                        // hide the datepicker after a day is selected
+        // hide the datepicker after a day is selected
+        closeOnSelect={true}
         placeholder="Select a date..."
 
-        isValidDate={ (date, granularity) =>        // the picker calls this function for every year, month and day that are currently
-            granularity==='day'                     // displayed, passing a moment object and a granularity string
+        // the picker calls this function for every year, month and day that are currently
+        // displayed, passing a moment object and a granularity string
+        isValidDate={ (date, granularity) =>
+            granularity==='day'                     
             && date.isAfter(moment("1995-12-25"));
         }
 
-        onChange={date =>                           // callback on every date change
+        // callback on every date change
+        onChange={date =>
             alert('Day changed to ' + date.format())
         }      
 
-        disabledDaysOfWeek={[5,6]}                  // disable weekends (Saturday and Sunday)
-        disabledDates =                             // disable specific dates
-            {[ "2015-12-10, 2018-05-05"]}
-        disabledDatesFormat="YYYY-MM-DD"            // format in which disabled dates are specified
+        // disable weekends (Saturday and Sunday)
+        disabledDaysOfWeek={[5,6]}
 
+        // disable specific dates
+        disabledDates = {[ "2015-12-10, 2018-05-05"]}
+
+        // format in which disabled dates are specified
+        disabledDatesFormat="YYYY-MM-DD"            
     />;
 }
 ```
