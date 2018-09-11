@@ -7,14 +7,14 @@ A React date and time picker written in ES6 with elegance and performance in min
 
 Install using npm:
 ```sh
-npm install --save react-datetimecombo
+npm install --save @quipugmbh/react-datetimecombo
 ```
 
 
 ## Example Usage
 
 ```jsx
-import DateTimeCombo from 'react-datetimecombo';
+import DateTimeCombo from '@quipugmbh/react-datetimecombo';
 ...
 
 render: function() {
