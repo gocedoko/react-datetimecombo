@@ -1,5 +1,5 @@
 {
-  "name": "react-datetimecombo",
+  "name": "@quipugmbh/react-datetimecombo",
   "version": "0.1.1",
   "description": "A complete React datetime picker component with a convenient design.",
   "homepage": "https://github.com/gocedoko/react-datetimecombo",
