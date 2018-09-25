@@ -200,3 +200,12 @@
 {
     clip-path: polygon(0% 0%, 0% 100%, 70% 100%, 100% 70%, 100% 0%);
 }
+
+
+.cdt input
+{
+  background-image: url('datetime.png');
+  background-position: right 7px top 50%;
+  background-size: 15px 15px;
+  background-repeat:   no-repeat;
+}
