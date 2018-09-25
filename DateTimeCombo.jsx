@@ -138,7 +138,7 @@ class DateTimeCombo extends React.Component {
 		this.setState({
 			selectedDate: newDate,
 			inputValue: newDate.format( this.props.dateTimeFormat )
-		}, () => this.props.onChange( newDate ) )
+		})
 	}
 
 	updateSelectedDate (value, partOfDate){
@@ -147,7 +147,10 @@ class DateTimeCombo extends React.Component {
 			selectedDate: newDate,
 			inputValue: newDate.format( this.props.dateTimeFormat ),
 			open: !(this.props.closeOnSelect && partOfDate==='date')
-		}, () => this.props.onChange( newDate ));
+		}, () => 
+			((this.props.fireCallbackOnYearChange && partOfDate==="year") ||
+			(this.props.fireCallbackOnMonthChange && partOfDate==="month"))
+				&& this.props.onChange( newDate ))
 	}
 	
 	openCalendar( e ) {
@@ -168,15 +171,10 @@ class DateTimeCombo extends React.Component {
 	}
 
 	closeCalendar() {
-		let formattedValue = moment(this.state.inputValue).format(this.props.dateTimeFormat);
-		let inputValue = this.state.inputValue && this.state.inputValue === formattedValue ? formattedValue : "";
-		let selectedValue = inputValue ? this.state.selectedDate : this.moment();
-
 		this.setState({ 
-			open: false, 
-			selectedDate: selectedValue,
-			inputValue: inputValue
-		}, () => this.props.onChange( inputValue ? selectedValue : "" ));
+			...this.getDateTimeState(this.props),
+			open: false
+		})
 	}
 
 	handleClickOutside() {
@@ -312,6 +310,9 @@ DateTimeCombo.propTypes= {
 	onFocus: PropTypes.func,
 	onBlur: PropTypes.func,
 	onChange: PropTypes.func,
+
+	fireCallbackOnYearChange: PropTypes.any,
+	fireCallbackOnMonthChange: PropTypes.any,
 	
 	disabledDaysOfWeek: PropTypes.array,
 	disabledDates: PropTypes.array,
@@ -348,6 +349,9 @@ DateTimeCombo.defaultProps = {
 	onFocus: () => {},
 	onBlur: () => {},
 	onChange: () => {},
+
+	fireCallbackOnYearChange: false,
+	fireCallbackOnMonthChange: false,
 
 	disabledDaysOfWeek : [],
 	disabledDates: [],

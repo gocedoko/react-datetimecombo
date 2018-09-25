@@ -39,16 +39,20 @@ render: function() {
         // displayed, passing a moment object and a granularity string
         isValidDate={ (date, granularity) =>
             granularity==='day'                     
-            && date.isAfter(moment("1995-12-25"));
+            && date.isAfter(moment("1995-12-25"))
         }
 
         // callback on every date change
         onChange={date =>
             alert('Day changed to ' + date.format())
-        }      
+        }
+
+        // prevent callback when changing months or years
+        fireCallbackOnYearChange = false
+	    fireCallbackOnMonthChange = false
 
         // disable weekends (Saturday and Sunday)
-        disabledDaysOfWeek={[5,6]}
+        disabledDaysOfWeek = {[5,6]}
 
         // disable specific dates
         disabledDates = {[ "2015-12-10, 2018-05-05"]}
