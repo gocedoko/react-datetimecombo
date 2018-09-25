@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom'
 import DateTimeCombo from '../DateTimeCombo.jsx'
 import moment from 'moment'
 
-import '../react-datetimecombo.css'
+import './react-datetimecombo.css'
 
 class DateTimeComboTest extends React.Component {
 

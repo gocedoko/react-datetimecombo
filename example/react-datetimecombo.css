@@ -1,0 +1,223 @@
+body
+{
+    font-family: Helvetica, sans-serif;
+    font-size: small;
+}
+
+.cdt {
+  position: static;
+}
+.cdtPicker {
+    position: absolute;
+    /* margin-top: 1px; */
+    margin-top: 5px;
+    background: #fff;
+    box-shadow: 0 1px 3px rgba(0,0,0,.1);
+    /* border: 1px solid #f9f9f9; */
+    border: 1px solid #ccc;
+    padding: 12px;
+    z-index: 99999!important;
+}
+
+.cdtStatic .cdtPicker {
+    box-shadow: none;
+    position: static;
+}
+
+.cdtPicker table {
+    margin: 0;
+}
+
+.cdtPicker td,
+.cdtPicker th {
+    text-align: center;
+    /* height: 26px; */
+    font-weight: normal;
+}
+
+.cdtPicker td.cdtDay
+{
+    height: 26px;
+    border-right: 1px solid #ddd;
+}
+
+.cdtPicker td {
+    cursor: pointer;
+    vertical-align: middle;
+}
+
+.cdtPicker .cdtOld,
+.cdtPicker .cdtNew {
+    color: #999999;
+}
+
+.cdtPicker .cdtActive,
+.cdtPicker .cdtActive:hover {
+  background-color: #428bca;
+  color: #fff;
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+}
+.cdtPicker .cdtActive.cdtDisabled,
+.cdtPicker .cdtActive.cdtDisabled:hover {
+  background-color: #BE6464; /* #83a6c3; */
+  color: #fff;
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+}
+
+.cdtPicker .cdtDisabled,
+.cdtPicker .cdtDisabled:hover {
+  background: none;
+  color: #999999;
+  cursor: not-allowed;
+}
+
+.cdtPicker td span.cdtOld {
+  color: #999999;
+}
+.cdtPicker td span.cdtDisabled,
+.cdtPicker td span.cdtDisabled:hover {
+  background: none;
+  color: #999999;
+  cursor: not-allowed;
+}
+.cdtPicker th {
+  border-bottom: 1px solid #f9f9f9;
+}
+.cdtPicker .dow {
+  width: 14.2857%;
+  border-bottom: none;
+}
+.cdtPicker th.cdtSwitch {
+  width: 100px;
+}
+.cdtPicker .cdtNext,
+.cdtPicker .cdtPrev {
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.cdtPrev{
+  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAsAAAALCAYAAACprHcmAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyRpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoTWFjaW50b3NoKSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDpGOTIxMjUyNjA3NDkxMUUzQTlDOEZGNjM2REJFMUY0RCIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDpGOTIxMjUyNzA3NDkxMUUzQTlDOEZGNjM2REJFMUY0RCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkVCQjhBMkUxMDc0OTExRTNBOUM4RkY2MzZEQkUxRjREIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOkVCQjhBMkUyMDc0OTExRTNBOUM4RkY2MzZEQkUxRjREIi8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+kY3/tQAAAGxJREFUeNq80DEOgCAMBdDi/WfuQhm4BSxwCRhg+1onCw46KEmTpn39AwYAPX3mM0yCr1VrhbUWvXfMu20+ds7JATHzEqxwjBGllLNPKVHOGbd4jAHvvUqSdJkvWOCxULi1RiGEH77uFd4FGAAp4V4aqL/CGAAAAABJRU5ErkJggg==);
+  background-repeat:   no-repeat;
+  background-position: 50% 50%;
+  cursor: pointer;
+  height: 17px;
+}
+
+.cdtNext
+{
+  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAsAAAALCAYAAACprHcmAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyRpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoTWFjaW50b3NoKSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDpFQkI4QTJERjA3NDkxMUUzQTlDOEZGNjM2REJFMUY0RCIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDpFQkI4QTJFMDA3NDkxMUUzQTlDOEZGNjM2REJFMUY0RCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkVCQjhBMkREMDc0OTExRTNBOUM4RkY2MzZEQkUxRjREIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOkVCQjhBMkRFMDc0OTExRTNBOUM4RkY2MzZEQkUxRjREIi8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+6t4JQgAAAHhJREFUeNpi/P//PwOxgImBBECSYhYYY/v27f8vXbqEoUBLS4vB19eXEcVkR0dHBl5eXhSFHBwcDK6urpjOAEowurm5oSgGKQSJY3WziooKo6amJpitrKwMcgIjim5Q0CHj79+//582bdr/T58+/UeXYxwc4QwQYABFNzTlmzGnvgAAAABJRU5ErkJggg==);
+  background-repeat:   no-repeat;
+  background-position: 50% 50%;
+  cursor: pointer;
+  height: 17px;
+}
+
+.cdtPicker th.cdtDisabled,
+.cdtPicker th.cdtDisabled:hover {
+  background: none;
+  color: #999999;
+  cursor: not-allowed;
+}
+
+.cdtPicker tfoot {
+  border-top: 1px solid #f9f9f9;
+}
+
+.cdtPicker button {
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+.cdtPicker thead button {
+  width: 100%;
+  height: 100%;
+}
+
+.cdtPicker th
+{
+  width: 30px;
+}
+
+.cdtDays
+{
+  /* padding-top: 24px;
+  padding-left: 14px;
+  padding-right: 10px; */
+  width: 150px;
+}
+
+.cdtHoursLeftPadding
+{
+  padding-left: 15px;
+}
+
+
+.cdtYears, .cdtMonths, .cdtDays, .cdtTimeUnits
+{
+    vertical-align: middle;
+    display: inline-block;
+}
+
+.cdtYears, .cdtMonths {
+    width: 66px;
+}
+
+.cdtDays {
+    width: 198px;
+    padding: 0 10px;
+}
+
+.cdtYear, .cdtMonth,  .cdtHour, .cdtMinute, .cdtSecond
+{
+    height: 18px;
+    line-height: 18px;
+    vertical-align: middle;
+    text-align: center;
+    cursor: pointer;
+}
+
+.cdtTimeUnits:not(.cdtTimeOnly){}
+
+.cdtTimeUnits:not(.cdtTimeOnly) div
+{
+  width: 35px;
+}
+
+.cdtTimeUnits.cdtTimeOnly div 
+{
+  width: 50px;
+}
+
+.cdtPicker .cdtYear.cdtActive,
+.cdtPicker .cdtMonth.cdtActive
+{
+    clip-path: polygon(10% 100%, 85% 100%, 100% 50%, 85% 0%, 10% 0%);
+}
+
+.cdtPicker .cdtHour.cdtActive,
+.cdtPicker .cdtMinute.cdtActive,
+.cdtPicker .cdtSecond.cdtActive {
+    clip-path: polygon(0% 50%, 15% 100%, 85% 100%, 100% 50%, 85% 0%, 15% 0%);
+}
+
+.cdtPicker .cdtToday
+{
+    clip-path: polygon(0% 0%, 0% 100%, 70% 100%, 100% 70%, 100% 0%);
+}
+
+
+.cdt input
+{
+  background-image: url('../datetime.png');
+  background-position: right 7px top 50%;
+  background-size: 15px 15px;
+  background-repeat:   no-repeat;
+  padding: 7px;
+  padding-left: 10px;
+  padding-right: 10px;
+  margin: 5px;
+  border: 1px solid #aaa;
+  cursor: pointer;
+}
