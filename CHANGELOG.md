@@ -1,6 +1,9 @@
 Changelog
 =========
 
+## 0.1.6
+- Fix onChange callback when a day is clicked
+
 ## 0.1.4
 - Add calendar icon in the input box.
 - Add image loader in webpack, so that the datetime.png icon can be loaded from the css in the example.
