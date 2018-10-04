@@ -149,7 +149,8 @@ class DateTimeCombo extends React.Component {
 			open: !(this.props.closeOnSelect && partOfDate==='date')
 		}, () => 
 			((this.props.fireCallbackOnYearChange && partOfDate==="year") ||
-			(this.props.fireCallbackOnMonthChange && partOfDate==="month"))
+			(this.props.fireCallbackOnMonthChange && partOfDate==="month") ||
+			partOfDate==="date")
 				&& this.props.onChange( newDate ))
 	}
 	

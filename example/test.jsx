@@ -20,6 +20,7 @@ class DateTimeComboTest extends React.Component {
 			<DateTimeCombo 
 				value={this.state.time}
 				onChange={v => this.setState({time: v})}
+				disabledDaysOfWeek = {[5,6]}
 			/>
 
 			<br/>
