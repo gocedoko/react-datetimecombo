@@ -1,7 +1,7 @@
 Changelog
 =========
 
-## 0.1.6
+## 0.1.7
 - Fix onChange callback when a day is clicked
 
 ## 0.1.4
