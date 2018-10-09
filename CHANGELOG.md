@@ -1,6 +1,9 @@
 Changelog
 =========
 
+## 0.1.8
+- Change input box value, only when a day is selected. Also if **fireCallbackOnYearChange** and **fireCallbackOnMonthChange** are set, then the input box value will be also updated when a year or a month is changed accordingly
+
 ## 0.1.7
 - Fix onChange callback when a day is clicked
 
@@ -12,4 +15,4 @@ Changelog
 - Add properties **fireCallbackOnYearChange** and **fireCallbackOnMonthChange**. When one is set to true, the onChange callback is fired when a year or a month has changed. Otherwise the callback is fired only when the day and/or the time has changed.
 
 ## 0.1.0
-This is the first commit but the code is fully functional. Further refinements of the interface and the documentation are on the way.
+- This is the first commit but the code is fully functional. Further refinements of the interface and the documentation are on the way.

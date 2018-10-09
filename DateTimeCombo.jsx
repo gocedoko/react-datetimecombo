@@ -143,15 +143,17 @@ class DateTimeCombo extends React.Component {
 
 	updateSelectedDate (value, partOfDate){
 		const newDate = this.moment(this.state.selectedDate.valueOf())[partOfDate]( value );
+		const updateInputAndfireOnChange = (this.props.fireCallbackOnYearChange && partOfDate==="year") 
+			|| (this.props.fireCallbackOnMonthChange && partOfDate==="month") 
+			|| partOfDate==="date"
+
 		this.setState({
 			selectedDate: newDate,
-			inputValue: newDate.format( this.props.dateTimeFormat ),
+			inputValue: updateInputAndfireOnChange 
+							? newDate.format( this.props.dateTimeFormat ) 
+							: this.state.inputValue,
 			open: !(this.props.closeOnSelect && partOfDate==='date')
-		}, () => 
-			((this.props.fireCallbackOnYearChange && partOfDate==="year") ||
-			(this.props.fireCallbackOnMonthChange && partOfDate==="month") ||
-			partOfDate==="date")
-				&& this.props.onChange( newDate ))
+		}, () => updateInputAndfireOnChange && this.props.onChange( newDate ))
 	}
 	
 	openCalendar( e ) {
