@@ -1,11 +1,11 @@
 var path = require('path');
 
 module.exports = {
-	entry: path.resolve(__dirname, './test.jsx'),
+	entry: path.resolve(__dirname, './example.jsx'),
 
 	output: {
 	    path: __dirname,
-	    filename: 'test.js',
+	    filename: 'example.js',
 	  },	
 
 	devServer: {

@@ -14,7 +14,8 @@ npm install --save @quipugmbh/react-datetimecombo
 ## Example Usage
 
 ```jsx
-import DateTimeCombo from '@quipugmbh/react-datetimecombo';
+import DateTimeCombo from '@quipugmbh/react-datetimecombo'
+import '@quipugmbh/react-datetimecombo/react-datetimecombo.css'
 ...
 
 render: function() {
@@ -64,7 +65,7 @@ render: function() {
 ```
 
 
-**Please also import a copy of the [CSS stylesheet](https://github.com/gocedoko/react-datetimecombo/blob/master/css/react-datetimecombo.css) in your application. Feel free to modify the styles according to your needs.**
+**Please also import a copy of the [CSS stylesheet](https://raw.githubusercontent.com/gocedoko/react-datetimecombo/master/react-datetimecombo.css) in your application. Feel free to modify the styles according to your needs.**
 
 
 ## Developement
