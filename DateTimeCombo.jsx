@@ -145,7 +145,7 @@ class DateTimeCombo extends React.Component {
 		const newDate = this.moment(this.state.selectedDate.valueOf())[partOfDate]( value );
 		const updateInputAndfireOnChange = (this.props.fireCallbackOnYearChange && partOfDate==="year") 
 			|| (this.props.fireCallbackOnMonthChange && partOfDate==="month") 
-			|| partOfDate==="date"
+			|| partOfDate==="date" || partOfDate==="hour" || partOfDate==="minute" || partOfDate==="second"
 
 		this.setState({
 			selectedDate: newDate,

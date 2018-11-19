@@ -1,6 +1,9 @@
 Changelog
 =========
 
+## 0.1.9
+- Fix small bug: when changing the hour, minutes or seconds, the callback was not fired
+
 ## 0.1.8
 - Change input box value, only when a day is selected. Also if **fireCallbackOnYearChange** and **fireCallbackOnMonthChange** are set, then the input box value will be also updated when a year or a month is changed accordingly
 
