@@ -12,8 +12,9 @@ class DateTimePickerYears extends React.Component {
 	}
 
 	renderYears() {
-		const firstShownYear = parseInt( this.props.selectedDate.year() / 10, 10 ) * 10,
-				year = this.props.selectedDate.year();
+		const selectedDate = this.props.selectedDate || this.props.moment(),
+			year = selectedDate.year(), 
+			firstShownYear = parseInt( year / 10, 10 ) * 10
 		let years = [];
 
 		years = Array.from({ length: 10 }, ( e, i ) => 

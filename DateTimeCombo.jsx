@@ -43,7 +43,7 @@ class DateTimeCombo extends React.Component {
 			selectedDate = this.moment( date, props.dateTimeFormat );
 		else if ( date )
 			selectedDate = this.moment( date );
-
+			
 		if ( selectedDate )
 			inputValue = selectedDate.format(props.dateTimeFormat);
 		else if ( date.isValid && !date.isValid() )
@@ -112,19 +112,20 @@ class DateTimeCombo extends React.Component {
 
 
 	onInputChange( e ) {
-		const value 		= e.target === null ? e : e.target.value,
-			  dateTimeValue = this.moment( value, this.props.dateTimeFormat, true );
+		const value 		= e.target === null ? e : e.target.value
+		let dateTimeValue = this.moment( value, this.props.dateTimeFormat, true );
 
-		if ( dateTimeValue.isValid() )
-			return this.setState( 
-				{
-					selectedDate: dateTimeValue,
-					inputValue: dateTimeValue.format( this.props.dateTimeFormat )
-				}, 
-				() => this.props.onChange( dateTimeValue )
-			);
-
-		return this.setState( { inputValue: value } );
+		// Allow emptying input box to delete value
+		if (!value)
+			this.setState({ selectedDate: null, inputValue: ""}, 
+				() => this.props.onChange( null ))
+		// Whenever the input box contains a valid date, update the calendar
+		else if (dateTimeValue.isValid())
+			this.setState({ selectedDate: dateTimeValue,
+							inputValue: dateTimeValue.format( this.props.dateTimeFormat )}, 
+				() => this.props.onChange( dateTimeValue ))
+		// Allow invalid dates while editing input box 
+		else this.setState({ inputValue: value })
 	}
 
 	onInputKey( e ) {
@@ -142,10 +143,11 @@ class DateTimeCombo extends React.Component {
 	}
 
 	updateSelectedDate (value, partOfDate){
-		const newDate = this.moment(this.state.selectedDate.valueOf())[partOfDate]( value );
-		const updateInputAndfireOnChange = (this.props.fireCallbackOnYearChange && partOfDate==="year") 
-			|| (this.props.fireCallbackOnMonthChange && partOfDate==="month") 
-			|| partOfDate==="date" || partOfDate==="hour" || partOfDate==="minute" || partOfDate==="second"
+		const selectedDate = this.state.selectedDate || this.moment(),
+			newDate = this.moment(selectedDate.valueOf())[partOfDate]( value ),
+			updateInputAndfireOnChange = (this.props.fireCallbackOnYearChange && partOfDate==="year") 
+				|| (this.props.fireCallbackOnMonthChange && partOfDate==="month") 
+				|| partOfDate==="date" || partOfDate==="hour" || partOfDate==="minute" || partOfDate==="second"
 
 		this.setState({
 			selectedDate: newDate,

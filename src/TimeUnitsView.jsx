@@ -4,9 +4,10 @@ import React from 'react';
 
 class DateTimePickerTimeUnits extends React.Component {
 	render() {
+		const selectedDate = this.props.selectedDate || this.props.moment()
 		const numShownUnits = 6;
 		const timeUnitDisplayName = this.props.timeUnit.charAt(0).toUpperCase() + this.props.timeUnit.slice(1);
-		const timeUnitValue = this.props.selectedDate[this.props.timeUnit](),
+		const timeUnitValue = selectedDate[this.props.timeUnit](),
 			  firstShownTimeUnit = parseInt( timeUnitValue / numShownUnits, 10 ) * numShownUnits,
 			  maxValue = this.props.timeUnit === 'hour' ? 24 : 60 ;
 

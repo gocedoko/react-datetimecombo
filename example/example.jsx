@@ -13,7 +13,8 @@ class DateTimeComboTest extends React.Component {
 	}
 
 	render(){
-		console.log("Datetime in state: " + this.state.time.format("DD.MM.YYYY"))
+		if (this.state.time)
+			console.log("Datetime in state: " + this.state.time.format("DD.MM.YYYY"))
 
 		return <span>
 			<small>Controlled</small>

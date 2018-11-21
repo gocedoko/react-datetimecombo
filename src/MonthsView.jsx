@@ -10,9 +10,9 @@ class DateTimePickerMonths extends React.Component {
 	}
 
 	renderMonths() {
-		const month = this.props.selectedDate.month(),
-			  year = this.props.selectedDate.year();
-		let months = [], selectedDate = this.props.selectedDate ;
+		const selectedDate = this.props.selectedDate || this.props.moment()
+		const [month, year] = [selectedDate.month(), selectedDate.year()]
+		let months = []
 
 		months = Array.from({ length: 12 }, ( e, i ) => 
 			({

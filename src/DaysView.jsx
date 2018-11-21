@@ -4,13 +4,14 @@ import React from 'react';
 
 class DateTimePickerDays extends React.Component {
 	render(){
+		const selectedDate = this.props.selectedDate || this.props.moment()
 		return <div className='cdtDays'>
 			<table>
 				<thead>
 					<tr>
 						{Array.from({ length: 7 }, ( e, i ) => 
 							<th key={i}>
-								{this.props.selectedDate.localeData()._weekdaysMin
+								{selectedDate.localeData()._weekdaysMin
 										[(i+Number(!this.props.weekStartsOnSunday))%7]}
 							</th>)}
 					</tr>
@@ -23,11 +24,12 @@ class DateTimePickerDays extends React.Component {
 	}
 
 	renderDays( ) {
-		const day = this.props.selectedDate.date(),
-			  month = this.props.selectedDate.month(),
-			  year = this.props.selectedDate.year(),
-			  daysInMonth = this.props.selectedDate.daysInMonth(),
-			  dayInWeekOfThe1st = this.props.moment(this.props.selectedDate.valueOf()).date(0).day(),
+		const selectedDate = this.props.selectedDate || this.props.moment(),
+			  day = selectedDate.date(),
+			  month = selectedDate.month(),
+			  year = selectedDate.year(),
+			  daysInMonth = selectedDate.daysInMonth(),
+			  dayInWeekOfThe1st = this.props.moment(selectedDate.valueOf()).date(0).day(),
 			  today = this.props.moment();
 		let days = [];
 
