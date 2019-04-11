@@ -215,7 +215,8 @@ class DateTimeCombo extends React.Component {
 					this.props.showInputField && 
 						<input 
 							type='text'
-							className={inputClassName}
+							className={'cdtInput ' + inputClassName}
+							style={this.props.style.cdtInput}
 							placeholder={this.props.placeholder}
 							disabled={this.props.disabled}
 							onClick= {this.openCalendar}
@@ -232,6 +233,7 @@ class DateTimeCombo extends React.Component {
 						<div 
 							key='cdtPicker' 
 							className='cdtPicker' 
+							style={this.props.style.cdtPicker}
 							> 
 								<div className='cdtRow'>
 								{ 
@@ -346,6 +348,10 @@ DateTimeCombo.defaultProps = {
 	dateTimeFormat: 'YYYY-MM-DD HH:mm',
 	
 	className: '',
+	style: {
+		cdtInput: {},
+		cdtPicker: {}
+	},
 	showInputField: true,
 	inputClassName: '',
 	inputProps: {},

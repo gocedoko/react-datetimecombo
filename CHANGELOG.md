@@ -1,6 +1,9 @@
 Changelog
 =========
 
+## 0.1.11
+- Add property style={cdtInput: {}, cdtPicker:{}}, passing the corresponding style properties inline to the Input field and the Calender Picker respectively.
+
 ## 0.1.9
 - Fix small bug: when changing the hour, minutes or seconds, the callback was not fired
 
@@ -19,3 +22,4 @@ Changelog
 
 ## 0.1.0
 - This is the first commit but the code is fully functional. Further refinements of the interface and the documentation are on the way.
+
