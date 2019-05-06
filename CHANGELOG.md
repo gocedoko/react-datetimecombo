@@ -1,6 +1,9 @@
 Changelog
 =========
 
+## 0.1.12
+- Add styleYears, styleMonths and styleDays functions which allow for styling of individual years, months or days in the calendar picker, correspondingly.
+
 ## 0.1.11
 - Add property style={cdtInput: {}, cdtPicker:{}}, passing the corresponding style properties inline to the Input field and the Calender Picker respectively.
 

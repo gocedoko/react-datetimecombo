@@ -55,6 +55,9 @@ class DateTimePickerDays extends React.Component {
 		if (this.props.validateDays)
 			this.props.validateDays(year, month, days);
 
+		if (this.props.styleDays)
+			this.props.styleDays(year, month, days);
+
 		// insert empty cells before the 1st day of the month
 		let weeks = [Array.from({ length:  dayInWeekOfThe1st}, (e,i) => <td key={'empty'+i}></td>)];
 		

@@ -38,6 +38,9 @@ class DateTimePickerMonths extends React.Component {
 		if (this.props.validateMonths)
 			this.props.validateMonths(year, months);
 
+		if (this.props.styleMonths)
+			this.props.styleMonths(year, months);
+
 		return months.map(props => delete props.disable
 						&& <div {...props}> 
 								{ capitalize(this.props.moment.monthsShort(props.key)) } 

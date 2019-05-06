@@ -41,6 +41,9 @@ class DateTimePickerYears extends React.Component {
 		if (this.props.validateYears)
 			this.props.validateYears(years);
 
+			if (this.props.styleYears)
+			this.props.styleYears(years);
+
 		return years.map(props => delete props.disable
 						&& <div {...props}> {props.key} </div>);
 	}

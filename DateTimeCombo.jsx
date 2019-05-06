@@ -242,16 +242,19 @@ class DateTimeCombo extends React.Component {
 										<YearsView 
 											key='cdtYears'
 											validateYears={this.props.validateYears} 
+											styleYears={this.props.styleYears} 
 											{...commonViewProps}
 										/>,
 										<MonthsView
 											key='cdtMonths'
 											validateMonths={this.props.validateMonths} 
+											styleMonths={this.props.styleMonths} 
 											{...commonViewProps}
 										/>,
 										<DaysView
 											key='cdtDays'
 											validateDays={this.props.validateDays} 
+											styleDays={this.props.styleDays} 
 											{...commonViewProps}
 										/>
 										]
