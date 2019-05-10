@@ -1,6 +1,9 @@
 Changelog
 =========
 
+## 0.1.13
+- Add 'scrollParent' property. This should be a ref to the first scroll parent, If set, the calendar picker will have a fixed position that will be updated when this parent is scrolled. When the calendar is used inside a div with scrollbars then the picker will be shown clipped inside. Setting the 'scrollParent' property to this div will solves the problem.
+
 ## 0.1.12
 - Add styleYears, styleMonths and styleDays functions which allow for styling of individual years, months or days in the calendar picker, correspondingly.
 
