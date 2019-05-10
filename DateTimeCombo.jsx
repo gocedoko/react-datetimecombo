@@ -26,13 +26,20 @@ class DateTimeCombo extends React.Component {
 		this.onInputKey = this.onInputKey.bind(this);
 		this.addTime = this.addTime.bind(this);
 		this.updateSelectedDate = this.updateSelectedDate.bind(this);
+		this.updateLocation = this.updateLocation.bind(this);
 		this.handleClickOutside = this.handleClickOutside.bind(this);
 		this.openCalendar = this.openCalendar.bind(this);
 		this.closeCalendar = this.closeCalendar.bind(this);
 		this.onInputKey = this.onInputKey.bind(this);
 		this.moment = props.moment;
 
-	    this.state = Object.assign(this.getDateTimeState( props ), this.getDisabledDatesState( props ), this.getDateTimeFormatState( props ));
+		this.myRef = React.createRef();
+
+	    this.state = Object.assign(
+			this.getDateTimeState( props ), 
+			this.getDisabledDatesState( props ), 
+			this.getDateTimeFormatState( props ),
+			{left: 0, top: 0});
   	}
 
 	getDateTimeState( props ) {
@@ -88,6 +95,12 @@ class DateTimeCombo extends React.Component {
 			showMinutesPicker: showMinutesPicker,
 			showSecondsPicker: showSecondsPicker
 		};
+	}
+
+	updateLocation(){
+        cellRect = this.myRef.current.getBoundingClientRect()
+        if ((this.state.left !== cellRect.left) || (this.state.top != cellRect.bottom))  
+        	this.setState({left: cellRect.left, top: cellRect.bottom})
 	}
 
 	componentWillReceiveProps( nextProps ) {
@@ -164,6 +177,12 @@ class DateTimeCombo extends React.Component {
 		let inputValue = this.state.inputValue && this.state.inputValue === formattedValue ? formattedValue : "";
 		let selectedValue = inputValue ? moment(inputValue) : this.moment();
 
+		if (this.props.scrollParent){
+			document.addEventListener('scroll', this.updateLocation)
+			this.props.scrollParent.current.addEventListener('scroll', this.updateLocation)
+			this.updateLocation()
+		}
+
 		if ( !this.state.open ) {
 			this.setState({ 
 				open: true, 
@@ -176,6 +195,11 @@ class DateTimeCombo extends React.Component {
 	}
 
 	closeCalendar() {
+		if (this.props.scrollParent){
+			document.removeEventListener('scroll', this.updateLocation)
+			this.props.scrollParent.current.removeEventListener('scroll', this.updateLocation)
+		}
+
 		this.setState({ 
 			...this.getDateTimeState(this.props),
 			open: false
@@ -196,6 +220,15 @@ class DateTimeCombo extends React.Component {
 		else if (this.state.open)
 			inputClassName += ' cdtOpen';
 
+		let style = this.props.style
+		if ( this.props.scrollParent )
+			style.cdtPicker = {
+				...style.cdtPicker,
+				position: "fixed",
+				top: this.state.top,
+				left: this.state.left
+			}
+	
 		const commonViewProps = 
 		{
 			isValidDate : this.props.isValidDate,
@@ -210,13 +243,13 @@ class DateTimeCombo extends React.Component {
 			showDatePicker : this.state.showDatePicker,
 		}
 
-		return <div className={className}>
+		return <div ref={this.myRef} className={className}>
 				{
 					this.props.showInputField && 
 						<input 
 							type='text'
 							className={'cdtInput ' + inputClassName}
-							style={this.props.style.cdtInput}
+							style={style.cdtInput}
 							placeholder={this.props.placeholder}
 							disabled={this.props.disabled}
 							onClick= {this.openCalendar}
@@ -233,7 +266,7 @@ class DateTimeCombo extends React.Component {
 						<div 
 							key='cdtPicker' 
 							className='cdtPicker' 
-							style={this.props.style.cdtPicker}
+							style={style.cdtPicker}
 							> 
 								<div className='cdtRow'>
 								{ 
