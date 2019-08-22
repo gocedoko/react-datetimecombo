@@ -98,6 +98,9 @@ class DateTimeCombo extends React.Component {
 	}
 
 	updateLocation(){
+		if (!this.myRef.current)
+			return;
+
         cellRect = this.myRef.current.getBoundingClientRect()
         if ((this.state.left !== cellRect.left) || (this.state.top != cellRect.bottom))  
         	this.setState({left: cellRect.left, top: cellRect.bottom})
