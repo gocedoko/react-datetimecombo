@@ -1,6 +1,6 @@
 Changelog
 =========
-## 0.1.14
+## 0.1.15
 - Fix error "Unable to get property getBoundingClientRect of undefined".
 
 ## 0.1.13
