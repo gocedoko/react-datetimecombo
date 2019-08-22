@@ -99,7 +99,7 @@ class DateTimeCombo extends React.Component {
 
 	updateLocation(){
 		if (!this.myRef.current)
-			return;
+			return document.removeEventListener('scroll', this.updateLocation)
 
         cellRect = this.myRef.current.getBoundingClientRect()
         if ((this.state.left !== cellRect.left) || (this.state.top != cellRect.bottom))  
