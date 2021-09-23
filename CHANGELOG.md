@@ -1,5 +1,8 @@
 Changelog
 =========
+## 0.1.16
+- Fix Warning message in development environment "Warning: componentWillReceiveProps has been renamed, and is not recommended for use".
+
 ## 0.1.15
 - Fix error "Unable to get property getBoundingClientRect of undefined".
 

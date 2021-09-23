@@ -20,7 +20,7 @@ class DateTimeCombo extends React.Component {
 		this.getDateTimeState = this.getDateTimeState.bind(this);
 		this.getDisabledDatesState = this.getDisabledDatesState.bind(this);
 		this.getDateTimeFormatState = this.getDateTimeFormatState.bind(this);
-		this.componentWillReceiveProps = this.componentWillReceiveProps.bind(this);
+		this.UNSAFE_componentWillReceiveProps = this.UNSAFE_componentWillReceiveProps.bind(this);
 		this.shouldComponentUpdate = this.shouldComponentUpdate.bind(this);
 		this.onInputChange = this.onInputChange.bind(this);
 		this.onInputKey = this.onInputKey.bind(this);
@@ -106,7 +106,7 @@ class DateTimeCombo extends React.Component {
         	this.setState({left: cellRect.left, top: cellRect.bottom})
 	}
 
-	componentWillReceiveProps( nextProps ) {
+	UNSAFE_componentWillReceiveProps( nextProps ) {
 		this.moment.locale(nextProps.locale);
 
 		if ( this.props.value !== nextProps.value )
